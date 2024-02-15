@@ -40,8 +40,15 @@ bool is_palindromic(int n) {
 }
 
 int main() {
+	int n;
 
-	bool resultat = is_palindromic(625411245);
+	cin >> n;
+
+	bool resultat = is_palindromic(n);
 	
-	cout << "El resultat és " << resultat << endl;
+	if(resultat) {
+		cout << "SÍ! " << n << " és palindromic" << endl;
+	} else {
+		cout << "NO! " << n << " no és palindromic" << endl;
+	}
 }

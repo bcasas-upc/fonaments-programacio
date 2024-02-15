@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -7,47 +8,55 @@ using namespace std;
 // Pre: un número natural
 // Pro: un boolean que val true si l'entrada és palindròmica o fals en cas contrari
 bool is_palindromic(int n) {
-	
-	// paso a string el nombre
-	string n_string = to_string(n);
-	
-	// miro la longitud de la string
-	int longitud_n_string = n_string.length();
-	
-	cout << "Avaluo " << n_string << ": " << endl;
+
+	vector<int> xifres;
+
+	bool continua_afegint_xifres = true;
+	while (continua_afegint_xifres) {
+
+		int xifra = n % 10;
+		xifres.push_back(xifra);
+		
+		cout << "n = " << n << " i xifra = " << xifra << endl;
+
+		if(xifra == n) {
+			//vol dir que ja no cal que segueixi agafant xifres, ja he acabat
+			continua_afegint_xifres = false;
+		} else {
+			//redueixo n
+			n = n / 10;
+		}
+	}
+
+	// miro quantes xifres tinc
+	int num_xifres = xifres.size();
 
 	// inicialment suposo que és palindròmic
 	bool n_es_palindromic = true;
-	
+
 	// flag: controlo si segueixo comprovant o no 
 	bool continuar_comprovant = true;
-	
+
 	int i = 0;
 	int j; // contindrà la posició contraria a la i
-	
-	// recorro el nombre com string
+
+	//ara faig un bucle per a comprovar si les xifres coincideixen
 	while (continuar_comprovant) {
 
-		// posició contraria a i 
-		j = longitud_n_string - 1 - i;
-		
-		if(n_string[i] != n_string[j]) {
-			// no és palindròmic!
-			cout << "[" << i << "] " << n_string[i] << " no és igual a " << n_string[j] << endl;
-			// registro que no és palindròmic
+		j = num_xifres - 1 - i;
+
+		cout << "xifres[" << i << "]=" << xifres[i] << " és igual a xifres[" << j << "]=" << xifres[j] << "?" << endl;
+
+		if(xifres[i] != xifres[j]) {
 			n_es_palindromic = false;
-			// surto del bucle pq ja he vist que no ho és
 			continuar_comprovant = false;
-		}	else {
-			cout << "[" << i << "] " << n_string[i] << " és igual a " << n_string[j] << endl;
 		}
-		
+
 		i = i + 1;
-		if (i >= longitud_n_string) {
-			// surto del bucle pq ja he acabat de recorrer tots els caràcters
+		if ( i >= num_xifres / 2) {
+			//no cal comprovar-les totes, sols cal comprovar la meitat
 			continuar_comprovant = false;
 		}
-		
 	}
 
 	return n_es_palindromic;
