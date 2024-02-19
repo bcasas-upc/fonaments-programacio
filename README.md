@@ -8,7 +8,7 @@
 
 ## Instruccions
 
-Per compilar un programa en cc, cal situar-se al directori on es troba el programa i executar, si el fitxer amb el codi font s'anomena `hola.cc`:
+Per compilar un programa en c++, cal situar-se al directori on es troba el programa i executar, si el fitxer amb el codi font s'anomena `hola.cc`:
 
     g++ -Wall -o hola.e hola.cc 
 
