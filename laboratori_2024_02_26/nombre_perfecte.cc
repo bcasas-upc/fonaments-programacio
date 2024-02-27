@@ -10,10 +10,10 @@ bool es_perfecte(int n) {
 	if ( n >= 2 ) {
 		int suma_acumulada = 1;
 		int possible_divisor = 2;
-		int l_altre_divisor;
+		int divisor_complementari;
 		
-		bool continuo_comprovant = true;
-		while(continuo_comprovant) {
+		bool continuo_sumant = true;
+		while(continuo_sumant) {
 			
 			if ( n % possible_divisor == 0) {
 				// sumo aquest divisor
@@ -21,21 +21,21 @@ bool es_perfecte(int n) {
 				
 				// aquest és l'altre divisor, i també el sumo
 				// per exemple, si n = 100, 2 és un divisor, però també 50 pq 2*50 = 100
-				l_altre_divisor = n / possible_divisor;
-				suma_acumulada = suma_acumulada + l_altre_divisor;
+				divisor_complementari = n / possible_divisor;
+				suma_acumulada = suma_acumulada + divisor_complementari;
 				
-				//cout << "d1: " << possible_divisor << ", d2: " << l_altre_divisor << ", suma: " << suma_acumulada << endl;
+				//cout << "d1: " << possible_divisor << ", d2: " << divisor_complementari << ", suma: " << suma_acumulada << endl;
 				
 				if (suma_acumulada > n) {
 					// ja m'he passat, no cal seguir mirant
-					continuo_comprovant = false;
+					continuo_sumant = false;
 				}
 			}
 			
 			possible_divisor = possible_divisor + 1;
 			// com quan trobo un divisor també sumo l'altre, acabo quan he arribat a la meitat dels divisors
 			if (possible_divisor*possible_divisor > n) {
-				continuo_comprovant = false;
+				continuo_sumant = false;
 			}
 		}
 		
