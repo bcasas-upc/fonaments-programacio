@@ -9,7 +9,7 @@ int piso(float f) {
 	int petit = (int) f;
 	//si f = 0.5 => petit = 0
 	//si f = 2.9 => petit = 2
-	if (f < 0) {
+	if (f < petit) {
 		//si f = -4.4 => petit = -5 
 		petit = petit - 1;
 	}
