@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// funció auxiliar que comprova si puc afegir un element al vector revisant
+// el darrer element ficat. És suficient pq el vector està ordenat i fico
+// els elements en ordre
 void fica_element_si_no_repetit(vector<double>& v, double e) {
 	int size = v.size();
 	
@@ -15,8 +18,7 @@ void fica_element_si_no_repetit(vector<double>& v, double e) {
 	}
 }
 
-//1 2 3 3 4
-//2 3 5
+// retorna els elements de v1 que no es troben a v2, i sense repetits
 vector<double> diferencia(const vector<double>& v1, const vector<double>& v2) {
 	
 	vector<double> diferents;
@@ -32,12 +34,7 @@ vector<double> diferencia(const vector<double>& v1, const vector<double>& v2) {
 	bool continua_buscant = true;
 	while (continua_buscant) {
 		if (i >= size_v1) {
-			//afegim tots el de v2 i acabem
-			// while( j < size_v2) {
-			// 	e2 = v2[j];
-			// 	fica_element_si_no_repetit(diferents, e2);
-			// 	j++;
-			// }
+			// ja no cal buscar més
 			continua_buscant = false;
 		} else if (j >= size_v2) {
 			//afegim tots els de v1 i acabem
@@ -59,7 +56,6 @@ vector<double> diferencia(const vector<double>& v1, const vector<double>& v2) {
 				fica_element_si_no_repetit(diferents, e1);
 				i++;
 			} else { // e2 < e1
-				//fica_element_si_no_repetit(diferents, e2);
 				j++;
 			}
 		}

@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// retorna elements comuns a v1 i v2, i sense repetits.
 vector<double> interseccio(const vector<double>& v1, const vector<double>& v2) {
 	
 	vector<double> comuns;
