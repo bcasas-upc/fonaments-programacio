@@ -45,7 +45,7 @@ int suma_amstrong(int n) {
 }
 
 int main() {
-	int n;
+	int n, s;
 	bool continua_llegint = true;
 	bool algun_amstrong = false;
 
@@ -53,7 +53,7 @@ int main() {
 		// Inv: algun_amstrong indica si s'ha trobat un nombre amstrong o no
 		cin >> n;
 		if (n > 0) {
-			int s = suma_amstrong(n);
+			s = suma_amstrong(n);
 			if ( n == s) {
 				if(algun_amstrong) {
 					//vol dir que no és el primer, per tant, 
