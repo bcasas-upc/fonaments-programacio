@@ -47,18 +47,18 @@ int main() {
 
         int suma_salaris = 0;
         bool continuar = true;
-        bool he_trobat_algun_jugador = false;
+        int trobats = 0;
         int i = 0;
 
         while (continuar) {
-            if(i < n) {
+            if (i < n) {
                 bool hi_pertany = pertanyAInterval(jugadors[i], p1, p2);
                 if (hi_pertany) {
-                    he_trobat_algun_jugador = true;
+                    trobats++;
                     suma_salaris += jugadors[i].salari;
                     noms.push_back(jugadors[i].nom);
                 } else {
-                    if(he_trobat_algun_jugador) {
+                    if (trobats > 0) {
                         // el primer no desprès d'un si
                         continuar = false;
                     }
@@ -70,8 +70,7 @@ int main() {
         }
 
         cout << suma_salaris;
-        int quants_noms = noms.size();
-        for (int k = 0; k < quants_noms; k++) {
+        for (int k = 0; k < trobats; k++) {
             cout << ' ' << noms[k];
         }
         cout << endl;
